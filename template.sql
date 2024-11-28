@@ -76,49 +76,37 @@ INSERT INTO
         FirstName,
         LastName,
         Email,
-        Phone,
-        MembershipStartDate,
-        MembershipStatus
+        Phone
     )
 VALUES (
         'John',
         'Doe',
         'johndoe@example.com',
-        '555-1234',
-        '2023-01-15',
-        'Active'
+        '555-1234'
     ),
     (
         'Jane',
         'Smith',
         'janesmith@example.com',
-        '555-5678',
-        '2023-03-10',
-        'Active'
+        '555-5678'
     ),
     (
         'Alice',
         'Johnson',
         'alicej@example.com',
-        '555-8765',
-        '2022-12-01',
-        'Active'
+        '555-8765'
     ),
     (
         'Bob',
         'Williams',
         'bobw@example.com',
-        '555-3456',
-        '2023-02-20',
-        'Inactive'
+        '555-3456'
     ),
     (
         'Charlie',
         'Brown',
         'charlieb@example.com',
-        '555-7890',
-        '2023-05-05',
-        'Active'
+        '555-7890'
     );
 
 INSERT INTO
