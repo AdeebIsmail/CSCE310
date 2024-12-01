@@ -1,17 +1,26 @@
--- Active: 1732755449547@@127.0.0.1@3306
+-- Active: 1733085971218@@127.0.0.1@3306@sakila
 CREATE TABLE Books (
-    BookID INTEGER PRIMARY KEY,
-    Title TEXT NOT NULL,
-    Author TEXT,
-    Genre TEXT,
-    ISBN TEXT UNIQUE NOT NULL,
-    PublishedYear INTEGER
+    BookID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(255) NOT NULL,
+    Author VARCHAR(255),
+    Genre VARCHAR(255),
+    Section VARCHAR(7) NOT NULL,
+    ISBN VARCHAR(20) UNIQUE NOT NULL,
+    PublishedYear INT
+);
+
+CREATE TABLE LibraryMembers (
+    MemberID INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(100) NOT NULL,
+    LastName VARCHAR(100) NOT NULL,
+    Email VARCHAR(255) UNIQUE,
+    Phone VARCHAR(15)
 );
 
 CREATE TABLE CheckedOutBooks (
-    CheckoutID INTEGER PRIMARY KEY,
-    BookID INTEGER NOT NULL,
-    MemberID INTEGER NOT NULL,
+    CheckoutID INT AUTO_INCREMENT PRIMARY KEY,
+    BookID INT NOT NULL,
+    MemberID INT NOT NULL,
     CheckoutDate DATE NOT NULL,
     DueDate DATE NOT NULL,
     ReturnDate DATE,
@@ -19,19 +28,12 @@ CREATE TABLE CheckedOutBooks (
     FOREIGN KEY (MemberID) REFERENCES LibraryMembers (MemberID) ON DELETE CASCADE
 );
 
-CREATE TABLE LibraryMembers (
-    MemberID INTEGER PRIMARY KEY,
-    FirstName TEXT NOT NULL,
-    LastName TEXT NOT NULL,
-    Email TEXT UNIQUE,
-    Phone TEXT
-);
-
 INSERT INTO
     Books (
         Title,
         Author,
         Genre,
+        Section,
         ISBN,
         PublishedYear
     )
@@ -39,6 +41,7 @@ VALUES (
         'To Kill a Mockingbird',
         'Harper Lee',
         'Fiction',
+        '1F-S3',
         '9780061120084',
         1960
     ),
@@ -46,6 +49,7 @@ VALUES (
         '1984',
         'George Orwell',
         'Dystopian',
+        '2F-B4',
         '9780451524935',
         1949
     ),
@@ -53,6 +57,7 @@ VALUES (
         'The Great Gatsby',
         'F. Scott Fitzgerald',
         'Classic',
+        '2G-73',
         '9780743273565',
         1925
     ),
@@ -60,6 +65,7 @@ VALUES (
         'The Catcher in the Rye',
         'J.D. Salinger',
         'Fiction',
+        '3J-K1',
         '9780316769488',
         1951
     ),
@@ -67,6 +73,7 @@ VALUES (
         'Moby Dick',
         'Herman Melville',
         'Adventure',
+        '3F-69',
         '9781503280786',
         1851
     );
@@ -120,35 +127,35 @@ INSERT INTO
 VALUES (
         1,
         1,
-        '2023-11-01',
-        '2023-11-15',
+        '2024-11-01',
+        '2024-11-15',
         NULL
     ),
     (
         2,
         2,
-        '2023-11-05',
-        '2023-11-20',
-        '2023-11-18'
+        '2024-11-05',
+        '2024-11-20',
+        '2024-11-18'
     ),
     (
         3,
         3,
-        '2023-11-10',
-        '2023-11-25',
+        '2024-11-10',
+        '2024-11-25',
         NULL
     ),
     (
         4,
         4,
-        '2023-11-12',
-        '2023-11-26',
+        '2024-11-12',
+        '2024-11-26',
         NULL
     ),
     (
         5,
         5,
-        '2023-11-15',
-        '2023-11-30',
+        '2024-11-15',
+        '2024-11-30',
         NULL
     );
